@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p  Hello, Good Morning 
+  button(type="button", class="btn btn-primary", onClick="method()") press Me
+  div#target
+  a(href='Soda') Soda 
+  script.
+    var client_count=0
+    function method(){
+      client_count++;
+      console.log(client_count);
+      document.getElementById("target").innerHTML="value now " + client_count;
+    }
