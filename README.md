@@ -1,6 +1,6 @@
 # wab48Tadiparthi
 Express Assignment
-Hosted at[https://wab48tadiparthi.herokuapp.com/](https://wab48tadiparthi.herokuapp.com/)<br>
+Hosted at[https://db48tadiparthi.herokuapp.com//](https://db48tadiparthi.herokuapp.com/)<br>
 Class name: Soda<br>
 Attributes:<br>
 company (String)<br>
