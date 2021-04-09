@@ -8,6 +8,19 @@ exports.Soda_list = async function (req, res) {
         res.error(500, `{"error": ${err}}`);
     }
 };
+// VIEWS
+// Handle a show all view
+exports.Soda_view_all_Page = async function (req, res) {
+    try {
+        theSodas = await Soda.find();
+        res.render('Soda', {
+            title: 'Soda Search Results',
+            results: theSodas
+        });
+    } catch (err) {
+        res.error(500, `{"error": ${err}}`);
+    }
+};
 // for a specific Soda.
 exports.Soda_detail = function (req, res) {
     res.send('NOT IMPLEMENTED: Soda detail: ' + req.params.id);

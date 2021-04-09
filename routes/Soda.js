@@ -1,9 +1,6 @@
 var express = require('express');
+const Soda_controlers= require('../controllers/Soda');
 var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('Soda', { title: 'Search Results' });
-});
-
+/* GET Soda */
+router.get('/', Soda_controlers.Soda_view_all_Page );
 module.exports = router;
