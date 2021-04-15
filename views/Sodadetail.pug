@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+
+  - let Sodaid = toShow._id
+  - let company = toShow.company
+  - let flavour = toShow.flavour
+  - let price = toShow.price
+  div
+    div.row
+      div(class='SodaAttr mr-3') Soda ID is:
+      div #{Sodaid}
+    div.row
+      div(class='SodaAttr mr-3') Soda company is:
+      div #{company}
+    div.row
+      div(class='SodaAttr mr-3') Soda flavour is:
+      div #{flavour}
+    div.row
+      div(class='SodaAttr mr-3') Soda price is:
+      div #{price}

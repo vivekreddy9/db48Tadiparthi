@@ -1,0 +1,58 @@
+extends layout
+
+block content
+  h1= title
+
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let Sodaid = toShow._id
+    - let company = toShow.company
+    - let flavour = toShow.flavour
+    - let price = toShow.price
+    - let actionid = "/resource/Sodas/" + Sodaid
+    script let actionid = "#{actionid}"
+    div
+      div.row
+        div(class='SodaAttr mr-3') Soda ID is:
+        div #{Sodaid}
+      div.row
+        div(class='SodaAttr mr-3') Soda Type is:
+        div #{Sodatype}
+      div.row
+        div(class='SodaAttr mr-3') Soda Size is:
+        div #{Sodasize}
+      div.row
+        div(class='SodaAttr mr-3') Soda Cost is:
+        div #{Sodacost}
+
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+
+  script.
+    function cancel() {
+      // Go back to the home page for the Soda collection
+      window.location.href='/Sodas'
+    }
+  script.
+    function deleteOnid() {
+      console.log("starting delete")
+      // delete first
+      fetch(actionid, {
+        method: 'DELETE'      // Don't need a body for the delete
+      }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+        alert("Delete succeded")
+        window.location.href='/Sodas'
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+        alert("Delete failed " + error )
+      });
+    }
+
+      
+  
+
+
