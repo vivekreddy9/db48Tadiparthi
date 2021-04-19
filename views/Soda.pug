@@ -4,15 +4,19 @@ block content
   div(class="container-fluid")
   h1= title
   -let result=results
-  div(class="row")
+  div(class="row m-1")
     each key,index in result
-        div(class = "col-sm-2 bg-primary" onclick=`buy(${index})`) #{key.company}
-        div(class = "col-sm-2 bg-primary" onclick=`buy(${index})`) #{key.flavour}
-        div(class = "col-sm-2 bg-primary" onclick=`buy(${index})`) #{key.price}
+      - let destination = `dispatch(\"/Soda/update?id=${key._id}\")`
+        div(class="col-sm-2" onclick=`buy(${index})`) #{key.company} #{key.flavour} #{key.price}
+        button.btn( class="btn-primary ml-1", onclick= destination) Update
   script.
      
       function buy(itemNo)
       {
         alert(`You purchased Item ${itemNo+1}`)
+      }
+      function dispatch(path)
+      {
+        window.location.href=path
       }
     
