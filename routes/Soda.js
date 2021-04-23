@@ -6,7 +6,7 @@ router.get('/', Soda_controlers.Soda_view_all_Page );
 /* GET detail Soda page */
 router.get('/detail', Soda_controlers.Soda_view_one_Page);
 /* GET create Soda page */
-router.get('/create', Soda_controlers.Soda_create_Page);
+router.get('/create', secured, Soda_controlers.Soda_create_Page);
 /* GET create update page */
 // A little function to check if we have an authorized user and continue on
 //or
@@ -20,5 +20,5 @@ const secured = (req, res, next) => {
  }
 router.get('/update', secured, Soda_controlers.Soda_update_Page);
 /* GET create Soda page */
-router.get('/delete', Soda_controlers.Soda_delete_Page);
+router.get('/delete', secured, Soda_controlers.Soda_delete_Page);
 module.exports = router;
