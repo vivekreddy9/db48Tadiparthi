@@ -5,7 +5,8 @@ exports.Soda_list = async function (req, res) {
         theSoda = await Soda.find();
         res.send(theSoda);
     } catch (err) {
-        res.error(500, `{"error": ${err}}`);
+        //res.error(500, `{"error": ${err}}`);
+        res.status(500).send("the details are not valid");
     }
 };
 // VIEWS
